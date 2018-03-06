@@ -1,0 +1,15 @@
+@import "colors";
+
+#entero-aleatorio {
+  background-color: $main;
+  border: 1px solid black;
+  color: white;
+  padding: 5px;
+}
+
+#rango-aleatorio {
+  background-color: $secondary;
+  border: 1px solid black;
+  color: white;
+  padding: 5px;
+}

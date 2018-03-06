@@ -1,36 +1,18 @@
-import '../styles/main.css';
-import '../styles/input-elements.css';
+import '../styles/main.scss';
+import { GeneradorAleatorio } from './random-generator';
 
-import { botonSecreto, textoSecreto } from './dom-loader';
+const textoDeSalida = document.querySelector('#texto-de-salida');
 
-var mostrarSecreto = false;
+const salidaEntero = () => {
+    textoDeSalida.textContent = GeneradorAleatorio.enteroAleatorio();
+};
 
-//Este botón está en dom-loader.js
-botonSecreto.addEventListener('click', cambiarEstadoSecreto);
-actualizarTextoSecreto();
+const salidaRango = () => {
+    textoDeSalida.textContent = GeneradorAleatorio.rangoAleatorio(1, 500);
+};
 
-function cambiarEstadoSecreto() {
-    mostrarSecreto = !mostrarSecreto;
-    actualizarTextoSecreto();
-    actualizarBotonSecreto();
-}
+const botonEntero = document.querySelector('#entero-aleatorio');
+const botonRango = document.querySelector('#rango-aleatorio');
 
-function actualizarBotonSecreto() {
-    if (mostrarSecreto) {
-        //Este botón está en dom-loader.js
-        botonSecreto.textContent = 'Oculta el secreto';
-    } else {
-        //Este botón está en dom-loader.js
-        botonSecreto.textContent = 'Muestra el secreto';
-    }
-}
-
-function actualizarTextoSecreto() {
-    if (mostrarSecreto) {
-        //Este botón está en dom-loader.js
-        textoSecreto.style.display = 'block';
-    } else {
-        //Este botón está en dom-loader.js
-        textoSecreto.style.display = 'none';
-    }
-}
+botonEntero.addEventListener('click', salidaEntero);
+botonRango.addEventListener('click', salidaRango);
